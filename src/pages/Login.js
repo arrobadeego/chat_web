@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './Login.scss';
 import request from '../services/service';
+import Cookies from 'js-cookie';
 
 class Login extends Component {
 
@@ -11,15 +12,15 @@ class Login extends Component {
 
     handleLogin = () => {
         console.log(this.state);
-        request.Auth.login(this.state.email, this.state.password).then( resp => {
-            if(resp.status === 200){
-                console.log(resp.status);
+        request.Auth.login(this.state.email, this.state.password).then( res => {
+            if(res.status === 200){
+                Cookies.set('Authorization', res.headers.authorization);
             }
         }).catch(function (response) {
-            //handle error
             console.log(response);
         });
     }
+
     render() {
         return(
             <div id="login">

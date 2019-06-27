@@ -1,4 +1,5 @@
 import axios from 'axios';
+import Cookies from 'js-cookie';
 
 const BASE_URL = "http://localhost:3333";
 
@@ -6,7 +7,7 @@ const HEADERS = {
     headers: {  
         'Access-Control-Allow-Origin': '*',
         'Access-Control-Expose-Headers': 'Authorization',
-        'Authorization': localStorage.getItem('Authorization')   
+        'Authorization': Cookies.get('Authorization')   
     }}
 
 const request = {
