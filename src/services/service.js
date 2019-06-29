@@ -18,7 +18,8 @@ const request = {
 }
 
 const Auth = {
-    login: (email, password) => request.post(`login`, { email: email, password: password }, HEADERS)
+    login: (email, password) => request.post(`login`, { email: email, password: password }, HEADERS),
+    registration: (email, password) => request.post(`registration`, { email: email, password: password }, HEADERS)
 };
 
 export default {
