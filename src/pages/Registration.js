@@ -18,9 +18,16 @@ class Registration extends Component {
 
         if(this.state.password !== this.state.rePassword) return console.log("As senhas são diferentes");
 
-        console.log("Foi executado");
+        console.log(this.state);
 
-        
+        request.Auth.registration(this.state.name, this.state.email, this.state.password).then( res => {
+            if(res.status === 200){
+                console.log(res)
+                Cookies.set('Authorization', res.headers.authorization);
+            }
+        }).catch(function (response) {
+            console.log(response);
+        });
     }
 
     render() {
