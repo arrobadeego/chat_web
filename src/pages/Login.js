@@ -64,7 +64,7 @@ class Login extends Component {
                     />
                     <div className="login-buttons">
                         <button onClick={this.handleLogin}>Sign in</button>
-                        <a>Forgot your password?</a>
+                        <Link to="registration">Forgot your password?</Link>
                         <span>If you don't have an account 
                             <a> sign up now</a>
                         </span>
