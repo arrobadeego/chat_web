@@ -58,6 +58,11 @@
                 transition: .2s ease-in-out;
                 color: $font-color;
             }
+
+            a, span {
+                color: #FFF;
+                margin-bottom: 2%;
+            }
         }
     }
 }

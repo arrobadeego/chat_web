@@ -23,6 +23,7 @@ class Login extends Component {
         request.Auth.login(this.state.email, this.state.password).then( res => {
             if(res.status === 200){
                 Cookies.set('Authorization', res.headers.authorization);
+                this.props.history.push("/contacts");
             }
         }).catch(function (response) {
             console.log(response);
@@ -72,9 +73,9 @@ class Login extends Component {
                     />
                     <div className="login-buttons">
                         <button onClick={this.handleLogin}>Sign in</button>
-                        <Link to="registration">Forgot your password?</Link>
+                        <Link to="/">Forgot your password?</Link>
                         <span>If you don't have an account 
-                            <a> sign up now</a>
+                            <Link to="registration"> sign up now</Link>
                         </span>
                     </div>
                 </div>

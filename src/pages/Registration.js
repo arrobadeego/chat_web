@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import Select from 'react-select';
 import './Registration.scss';
 import request from '../services/service';
@@ -43,6 +44,9 @@ class Registration extends Component {
                     </div>
                     <div className="registration-buttons">
                         <button onClick={this.handleRegistration}>Sign up</button>
+                        <span>If you already have an account 
+                            <Link to="/"> sign in now</Link>
+                        </span>
                     </div>
                 </div>
             </div>
