@@ -1,13 +1,15 @@
+@import '../styles/colors.scss';
+
 #login {
     height: 100%;
     padding: 1%;
+    background: $primary-background-color;
 
     .login-form {
         position: fixed;
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
-        border: 1px solid #DADADA;
         max-width: 500px;
         padding: 1%;
         width: 100%;
@@ -31,11 +33,12 @@
                 width: 350px;
                 margin-bottom: 15px;
                 border: 0;
-                border: 1px solid #9e9e9e;
+                border: 1px solid $fornary-background-color;
                 padding: 2%;
                 outline: none;
                 transition: .2s ease-in-out;
                 box-sizing: border-box;
+                background: $tertiary-background-color;
             }
     
         }
@@ -44,6 +47,11 @@
             display: flex;
             flex-direction: column;
             align-items: center;
+
+            a, span {
+                color: #FFF;
+                margin-bottom: 2%;
+            }
             
             button {
                 margin-bottom: 15px;
@@ -51,14 +59,26 @@
                 font-size: 18px;
                 height: 35px;
                 width: 350px;
-                border: 1px solid #9e9e9e;
+                border: 1px solid $fornary-background-color;
+                background: $secondary-background-color;
                 transition: .2s ease-in-out;
+                color: $font-color;
             }
         }
 
         .css-2b097c-container {
             width: 350px !important;
             font-size: 18px;
+
+            .css-yk16xz-control {
+                .css-1hwfws3 {
+                    background: $tertiary-background-color;
+
+                    .css-1wa3eu0-placeholder {
+                        background: $tertiary-background-color;
+                    }
+                }
+            }
         }
     }
 }

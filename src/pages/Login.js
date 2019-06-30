@@ -13,10 +13,10 @@ class Login extends Component {
         selectedOption: null
     }
 
-      handleChange = selectedOption => {
+    handleChange = selectedOption => {
         this.setState({ selectedOption });
         console.log(`Option selected:`, selectedOption);
-      };
+    };
 
     handleLogin = () => {
         console.log(this.state);
@@ -36,20 +36,27 @@ class Login extends Component {
             { value: '2', label: 'Away' },
             { value: '3', label: 'Busy' },
             { value: '4', label: 'Offline' },
-          ];
+        ];
 
-
-        //   const customStyles = {
-        //     option: (provided, state) => ({
-        //       ...provided,
-        //     //   borderBottom: '1px dotted pink',
-        //     //   color: state.isSelected ? 'red' : 'blue',
-        //       padding: 20,
-        //     })
-        //   }
+        const customStyles = {
+            option: (provided, state) => ({
+              ...provided,
+              borderBottom: '1px dotted pink',
+              color: '#454851',
+              background: '#BCFFDB',
+              padding: 20,
+            }),
+            singleValue: (provided, state) => {
+                const opacity = state.isDisabled ? 0.5 : 1;
+                const transition = 'opacity 300ms';
+            
+                return { ...provided, opacity, transition };
+            }
+        }
 
         return(
             <div id="login">
+                
                 <div className="login-form">
                     <div className="login-inputs">
                         <input type="text" placeholder="E-mail" onChange={e => {this.setState({ email: e.target.value }) }}/>
@@ -61,6 +68,7 @@ class Login extends Component {
                         value={this.state.selectedOption}
                         options={options}
                         onChange={this.handleChange}
+                        styles={customStyles}
                     />
                     <div className="login-buttons">
                         <button onClick={this.handleLogin}>Sign in</button>
