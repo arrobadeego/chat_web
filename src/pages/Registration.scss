@@ -40,6 +40,9 @@
                 background: $tertiary-background-color;
             }
     
+            .errors {
+                border: 1px solid red;
+            }
         }
         
         .registration-buttons {
