@@ -25,6 +25,7 @@ class Registration extends Component {
             if(res.status === 200){
                 console.log(res)
                 Cookies.set('Authorization', res.headers.authorization);
+                this.props.history.push("/contacts");
             }
         }).catch(function (response) {
             console.log(response);
