@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import Sidebar from "react-sidebar";
 import request from '../services/service';
 import './Contacts.scss';
 
@@ -10,11 +9,11 @@ class Contacts extends Component {
         contacts: []
     };
 
-    componentDidMount() {
+    componentDidMount = () => {
         request.Contacts.getContacts().then( res => {
             if(res.status === 200){
-                console.log("Chamou os contatos");
-                console.log(res);
+                console.log(res.data.contacts);
+                this.setState({contacts: res.data.contacts})
             }
         }).catch(function (response) {
             this.setState({ errors: { className: "errors" } });
@@ -28,18 +27,11 @@ class Contacts extends Component {
 
     render() {
 
+        const contactsList = this.state.contacts.map(contact => (<ul><li>{contact.name}</li></ul>))
+
         return(
             <div id="contacts">
-                <Sidebar
-                    sidebar={<b>Sidebar content</b>}
-                    open={this.state.sidebarOpen}
-                    onSetOpen={this.onSetSidebarOpen}
-                    styles={{ sidebar: { background: "white" } }}
-                >
-                    <button onClick={() => this.onSetSidebarOpen(true)}>
-                    Open sidebar
-                    </button>
-                </Sidebar>
+                
             </div>
         );
     }
