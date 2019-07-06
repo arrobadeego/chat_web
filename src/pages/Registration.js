@@ -12,7 +12,7 @@ class Registration extends Component {
         email: null,
         password: null,
         rePassword: null,
-        errors: { name: null, email: null, password: null, rePassword: null }
+        errors: { name: null, email: null, password: null, rePassword: null, messages: [] }
     }
 
     handleRegistration = () => {
@@ -20,31 +20,36 @@ class Registration extends Component {
         let anyErro = false;
 
         if (!this.state.name) {
-            this.setState({ errors: { name: "errors" } });
+            const messages = "Name can't be blank";            
+            this.setState({ errors: { name: "errors", messages: [...messages] } });
             anyErro = true;
         }
 
         if (!this.state.email) {
-            this.setState({ errors: { email: "errors" } });
+            const messages = "E-mail can't be blank";
+            this.setState({ errors: { email: "errors", messages: [...messages]  } });
             anyErro = true;
         } 
 
         if (!this.state.password) {
-            this.setState({ errors: { password: "errors" } });
+            const messages = "Password can't be blank";
+            this.setState({ errors: { password: "errors", messages: [...messages]  } });
             anyErro = true;
         }
 
         if (!this.state.rePassword) {
-            this.setState({ errors: { rePassword: "errors" } });
+            const messages = "Password can't be blank";
+            this.setState({ errors: { rePassword: "errors", messages: [...messages]  } });
             anyErro = true;
         }
 
         if(this.state.password !== this.state.rePassword) {
-            this.setState({ errors: { password: "errors", rePassword: "errors" } });
+            const messages = "Passwords don't match";
+            this.setState({ errors: { password: "errors", rePassword: "errors", messages: [...messages]  } });
             anyErro = true;
         }
 
-        if(anyErro) return;
+        if(anyErro) return console.log(this.state.errors.messages);
 
         request.Auth.registration(this.state.name, this.state.email, this.state.password).then( res => {
             if(res.status === 200){
