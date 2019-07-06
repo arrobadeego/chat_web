@@ -22,6 +22,10 @@ const Auth = {
     registration: (name, email, password) => request.post(`registration`, { name, email, password }, HEADERS)
 };
 
+const Contacts = {
+    getContacts: () => request.get('contacts', HEADERS)
+}
+
 export default {
-    Auth
+    Auth, Contacts
 };
