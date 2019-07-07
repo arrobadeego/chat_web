@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import request from '../services/service';
 import './Main.scss';
 import Menu from '../components/Menu';
+import Sidemenu from '../components/Sidemenu';
 
 class Main extends Component {
 
@@ -29,7 +30,7 @@ class Main extends Component {
         return(
             <div id="main">
                 <Menu />
-                
+                <Sidemenu />
             </div>
         );
     }

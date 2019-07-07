@@ -16,7 +16,7 @@ class Menu extends Component {
                 <button>
                     <i className="material-icons">menu</i>
                 </button>
-
+                
                 <a>Link de teste</a>
             </div>
 

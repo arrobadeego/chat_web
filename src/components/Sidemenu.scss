@@ -1,0 +1,17 @@
+#sidemenu {
+    width: 200px;
+    height: 100%;
+    background: deeppink;
+
+    .onShow {
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+
+    .onHide {
+        position: absolute;
+        top: 0;
+        left: -200px;
+    }
+}
