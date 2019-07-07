@@ -29,7 +29,7 @@ class Main extends Component {
         return(
             <div id="main">
                 <Menu />
-
+                
             </div>
         );
     }
