@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import './Login.scss';
+import './Menu.scss';
 import request from '../services/service';
 
 class Menu extends Component {
@@ -13,7 +13,11 @@ class Menu extends Component {
 
         return(
             <div id="menu">
-                
+                <button>
+                    <i className="material-icons">menu</i>
+                </button>
+
+                <a>Link de teste</a>
             </div>
 
         );

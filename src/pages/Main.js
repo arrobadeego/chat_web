@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import request from '../services/service';
-import './Contacts.scss';
+import './Main.scss';
+import Menu from '../components/Menu';
 
 class Main extends Component {
 
@@ -21,17 +22,14 @@ class Main extends Component {
         });
     }
 
-    onSetSidebarOpen = (open) => {
-        this.setState({ sidebarOpen: open });
-    }
-
     render() {
 
         const contactsList = this.state.contacts.map(contact => (<ul><li>{contact.name}</li></ul>))
 
         return(
             <div id="main">
-                
+                <Menu />
+
             </div>
         );
     }

@@ -21,10 +21,6 @@ class Contacts extends Component {
         });
     }
 
-    onSetSidebarOpen = (open) => {
-        this.setState({ sidebarOpen: open });
-    }
-
     render() {
 
         const contactsList = this.state.contacts.map(contact => (<ul><li>{contact.name}</li></ul>))
