@@ -5,18 +5,19 @@ import request from '../services/service';
 
 class Menu extends Component {
 
-    state = {
-        
+    onHamburguerClicked = () => {
+        // console.log("clicou");
+        this.props.isHamburguerClicked(false);
     }
 
     render() {
 
         return(
             <div id="menu">
-                <button>
+                <button onClick={this.onHamburguerClicked}>
                     <i className="material-icons">menu</i>
                 </button>
-                
+
                 <a>Link de teste</a>
             </div>
 

@@ -7,7 +7,7 @@ import Sidemenu from '../components/Sidemenu';
 class Main extends Component {
 
     state = {
-        sidebarOpen: true,
+        sidemenu: "close",
         contacts: []
     };
 
@@ -18,9 +18,13 @@ class Main extends Component {
                 this.setState({contacts: res.data.contacts})
             }
         }).catch(function (response) {
-            this.setState({ errors: { className: "errors" } });
+            //this.setState({ errors: { className: "errors" } });
             console.log(response);
         });
+    }
+
+    onHamburguerClicked = (e) => {
+        this.setState({ sidemenu: "open" });
     }
 
     render() {
@@ -29,8 +33,8 @@ class Main extends Component {
 
         return(
             <div id="main">
-                <Menu />
-                <Sidemenu />
+                <Menu isHamburguerClicked={this.onHamburguerClicked} />
+                <Sidemenu sidemenu={this.state.sidemenu} />
             </div>
         );
     }

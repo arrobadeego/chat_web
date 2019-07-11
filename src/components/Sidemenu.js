@@ -6,17 +6,22 @@ import './Sidemenu.scss';
 class Sidemenu extends Component {
 
     state = {
-        style: "onHide"
+        sidemenu: "close"
     }
 
     handleClickOutside = evt => {
-        console.log(evt);
-    };
+        this.setState({ sidemenu: "close" });
+    }
+
+    componentWillReceiveProps(nextProps) {
+        console.log(nextProps.sidemenu);
+        this.setState({ sidemenu: nextProps.sidemenu });
+    }
 
     render() {
 
         return(
-            <div id="sidemenu" className={this.state.style}>
+            <div id="sidemenu" className={this.state.sidemenu}>
                 
             </div>
         );
