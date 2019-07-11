@@ -14,10 +14,10 @@
         align-items: center;
 
         #photo {
-            width: 150px;
-            height: 150px;
+            width: 125px;
+            height: 125px;
             border-radius: 50%;
-            background: deeppink;
+            background: #307351;
 
             display: flex;
             flex-direction: column;
@@ -47,11 +47,25 @@
     }
 }
 #sidemenu.open {
-        position: absolute;
-        left: 0;
-    }
+    position: absolute;
+    left: 0;
+    animation-name: openSidemenu;
+    animation-duration: 0.5s;
+}
 
 #sidemenu.close {
-        position: absolute;
-        left: -200px;
-    }
+    position: absolute;
+    left: -200px;
+    animation-name: closeSidemenu;
+    animation-duration: 0.5s;
+}
+
+@keyframes openSidemenu {
+    from {left: -200px;}
+    to {left: 0;}
+}
+
+@keyframes closeSidemenu {
+    from {left: 0;}
+    to {left: -200px;}
+}
