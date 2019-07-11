@@ -1,10 +1,19 @@
 #sidemenu {
     width: 200px;
     height: 100%;
-    background: deeppink;
+    background: #FFF;
     position: absolute;
     top: 0;
 
+    .contact-lists ul {
+        display: flex;
+        flex-direction: column;
+
+
+        li {
+            color: #E6EBE0;
+        }
+    }
 }
 #sidemenu.open {
         position: absolute;

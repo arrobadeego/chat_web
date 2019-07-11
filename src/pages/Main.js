@@ -8,7 +8,8 @@ class Main extends Component {
 
     state = {
         sidemenu: "close",
-        contacts: []
+        contacts: [],
+        profile: null
     };
 
     componentDidMount = () => {
@@ -16,6 +17,16 @@ class Main extends Component {
             if(res.status === 200){
                 console.log(res.data.contacts);
                 this.setState({contacts: res.data.contacts})
+            }
+        }).catch(function (response) {
+            //this.setState({ errors: { className: "errors" } });
+            console.log(response);
+        });
+
+        request.Auth.getProfile().then( res => {
+            if(res.status === 200){
+                console.log(res.data);
+                // this.setState({profile: res.data.contacts})
             }
         }).catch(function (response) {
             //this.setState({ errors: { className: "errors" } });
@@ -34,7 +45,7 @@ class Main extends Component {
         return(
             <div id="main">
                 <Menu isHamburguerClicked={this.onHamburguerClicked} />
-                <Sidemenu sidemenu={this.state.sidemenu} />
+                <Sidemenu sidemenu={this.state.sidemenu} contacts={contactsList} />
             </div>
         );
     }
