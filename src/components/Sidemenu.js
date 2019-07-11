@@ -49,7 +49,7 @@ class Sidemenu extends Component {
         return(
             <div id="sidemenu" className={this.state.sidemenu}>
                 <div id="profile">
-                    { this.state.profile === null ? null : <img src={this.state.profile.photo} /> }
+                    { this.state.profile === null ? null : <div id="photo"><img src={this.state.profile.photo} /></div> }
                     { this.state.profile === null ? null : <label>{this.state.profile.name}</label> }
                 </div>
                 {contactsList}
