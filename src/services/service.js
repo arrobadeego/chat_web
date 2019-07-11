@@ -19,6 +19,7 @@ const request = {
 
 const Auth = {
     login: (email, password) => request.post(`login`, { email: email, password: password }, HEADERS),
+    profile: () => request.get(`profile`, HEADERS),
     registration: (name, email, password) => request.post(`registration`, { name, email, password }, HEADERS)
 };
 
