@@ -8,7 +8,30 @@ class Sidemenu extends Component {
 
     state = {
         sidemenu: "close",
-        contacts: []
+        contacts: [],
+        profile: null
+    }
+
+    componentDidMount = () => {
+        request.Contacts.getContacts().then( res => {
+            if(res.status === 200){
+                console.log(res.data.contacts);
+                this.setState({contacts: res.data.contacts})
+            }
+        }).catch(function (response) {
+            //this.setState({ errors: { className: "errors" } });
+            console.log(response);
+        });
+
+        request.Auth.getProfile().then( res => {
+            if(res.status === 200){
+                console.log(res.data);
+                this.setState({profile: res.data})
+            }
+        }).catch(function (response) {
+            //this.setState({ errors: { className: "errors" } });
+            console.log(response);
+        });
     }
 
     handleClickOutside = evt => {
@@ -21,10 +44,14 @@ class Sidemenu extends Component {
     }
 
     render() {
+        const contactsList = this.state.contacts.map(contact => (<ul><li>{contact.name}</li></ul>))
 
         return(
             <div id="sidemenu" className={this.state.sidemenu}>
-                {this.props.contacts}
+                <div id="profile">
+                    { this.state.profile === null ? null : <img src={this.state.profile.photo} /> }
+                </div>
+                {contactsList}
             </div>
         );
     }
