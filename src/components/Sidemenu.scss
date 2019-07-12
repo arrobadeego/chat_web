@@ -1,3 +1,5 @@
+@import '../styles/colors.scss';
+
 #sidemenu {
     width: 200px;
     height: 100%;
@@ -36,13 +38,49 @@
         }
     }
 
-    .contact-lists ul {
+    #contact-list {
+        background: #FFF;
         display: flex;
         flex-direction: column;
+        justify-content: center;
+        align-items: center;
 
+        label {
+            background: #FFF;
+            color: $font-color;
+            border-top: 1px solid $font-color;
+            border-bottom: 1px solid $font-color;
+            font-size: 18px;
+            padding: 5% 0% 5% 0%;
+            margin-bottom: 5%;
+            width: 100%;
+            text-align: center;
+        }
 
-        li {
-            color: #E6EBE0;
+        ul {
+            display: flex;
+            flex-direction: column;
+            background: #FFF;
+            width: 100%;
+            padding: 1%;
+    
+            li {
+                display: flex;
+                flex-direction: row;
+                align-items: baseline;
+
+                div {
+                    width: 10px;
+                    height: 10px;
+                    border-radius: 50%;
+                    background: #307351;
+                    margin-right: 1%;
+                }
+
+                background: #FFF;
+                color: $font-color;
+                list-style: none;
+            }
         }
     }
 }
