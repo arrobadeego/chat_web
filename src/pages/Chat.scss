@@ -1,8 +1,43 @@
+@import '../styles/colors.scss';
 #chat {
     background: #FFF;
     width: 100%;
-    height: 100%;
+    height: 92%;
     position: absolute;
-    // top: 0;
-    // left: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+
+    #contact-chat {
+        width: 100%;
+        height: 100px;
+        background: #FFF;
+        border: 1px solid $font-color;
+    }
+
+    #chat-chat {
+        width: 100%;
+        height: 100%;
+        background: #FFF;
+        border: 1px solid $font-color;
+    }
+
+    #input-chat {
+        // position: absolute;
+        // bottom: 0;
+
+        width: 100%;
+        height: 100px;
+        padding: 5%;
+        background: #FFF;
+        overflow-y: scroll;
+
+        textarea {
+            width: 100%;
+            height: 100%;
+            background: #FFF;
+            border: 1px solid $font-color;
+        }
+    }
 }

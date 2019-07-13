@@ -7,6 +7,11 @@ class Chat extends Component {
 
         return(
             <div id="chat">
+                <div id="contact-chat"></div>
+                <div id="chat-chat"></div>
+                <div id="input-chat">
+                    <textarea />
+                </div>
             </div>
         );
     }
