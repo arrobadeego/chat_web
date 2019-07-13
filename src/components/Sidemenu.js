@@ -65,7 +65,7 @@ class Sidemenu extends Component {
 
     render() {
         const contactsList = this.state.contacts.map(contact => (
-                        <li>
+                        <li id={contact.id}>
                             <div className={this.getStatusClas(contact.status)}>
                                 <img src={contact.photo} />
                             </div>
