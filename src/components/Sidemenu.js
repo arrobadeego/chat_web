@@ -44,14 +44,14 @@ class Sidemenu extends Component {
     }
 
     render() {
-        // const contactsList = this.state.contacts.map(contact => (<ul><li>{contact.name}</li></ul>))
-        const contactsList = (<ul>
-                                <li><div></div>Jason</li>
-                                <li><div></div>Triny</li>
-                                <li><div></div>Kimberly</li>
-                                <li><div></div>Zack</li>
-                                <li><div></div>Billy</li>
-                            </ul>)
+        const contactsList = this.state.contacts.map(contact => (<li>{contact.name}</li>))
+        // const contactsList = (<ul>
+        //                         <li><div></div>Jason</li>
+        //                         <li><div></div>Triny</li>
+        //                         <li><div></div>Kimberly</li>
+        //                         <li><div></div>Zack</li>
+        //                         <li><div></div>Billy</li>
+        //                     </ul>)
 
         return(
             <div id="sidemenu" className={this.state.sidemenu}>
@@ -61,7 +61,7 @@ class Sidemenu extends Component {
                 </div>
                 <div id="contact-list">
                     <label>Concacts</label>
-                    {contactsList}
+                    <ul>{contactsList}</ul>
                 </div>
             </div>
         );
