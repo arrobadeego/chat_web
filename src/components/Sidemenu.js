@@ -43,15 +43,35 @@ class Sidemenu extends Component {
         this.setState({ sidemenu: nextProps.sidemenu });
     }
 
+    getStatusClas(status) {
+        switch (status) {
+            case "1":
+                return "online";
+                break;
+            case "2":
+                return "away";
+                break;
+            case "3":
+                return "busy";
+                break;
+            case "4":
+                return "offline";
+                break;
+            default:
+                console.log("deu errado");
+                break;
+        }
+    }
+
     render() {
-        const contactsList = this.state.contacts.map(contact => (<li>{contact.name}</li>))
-        // const contactsList = (<ul>
-        //                         <li><div></div>Jason</li>
-        //                         <li><div></div>Triny</li>
-        //                         <li><div></div>Kimberly</li>
-        //                         <li><div></div>Zack</li>
-        //                         <li><div></div>Billy</li>
-        //                     </ul>)
+        const contactsList = this.state.contacts.map(contact => (
+                        <li>
+                            <div className={this.getStatusClas(contact.status)}>
+                                <img src={contact.photo} />
+                            </div>
+                            {contact.name}
+                        </li>
+                    ))
 
         return(
             <div id="sidemenu" className={this.state.sidemenu}>
