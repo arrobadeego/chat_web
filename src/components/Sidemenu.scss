@@ -72,6 +72,7 @@
                 background: #FFF;
                 color: $font-color;
                 list-style: none;
+                cursor: pointer;
 
                 .online, .offline, .busy, .away {
                     width: 40px;

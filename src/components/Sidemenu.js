@@ -63,9 +63,13 @@ class Sidemenu extends Component {
         }
     }
 
+    onClickContact = () => {
+        console.log("clicou aqui");
+    }
+
     render() {
         const contactsList = this.state.contacts.map(contact => (
-                        <li id={contact.id}>
+                        <li id={contact.id} onClick={this.onClickContact}>
                             <div className={this.getStatusClas(contact.status)}>
                                 <img src={contact.photo} />
                             </div>
