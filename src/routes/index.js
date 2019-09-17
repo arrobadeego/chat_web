@@ -4,7 +4,7 @@ import { Switch, Route } from 'react-router-dom';
 // import Login from './pages/Login';
 // import Registration from './pages/Registration';
 // import Main from './pages/Main';
-import SignUp from './pages/SignUp';
+import SignUp from '../pages/SignUp';
 
 function Routes() {
     return (
