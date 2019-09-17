@@ -30,6 +30,7 @@ export default function SignUp() {
 
     return (
         <Container>
+            <span>Zip Zop</span>
             <Form schema={schema} onSubmit={handleSubmit}>
                 <Input name="name" placeholder="Name" />
                 <Input name="email" type="email" placeholder="E-mail" />

@@ -7,7 +7,14 @@ export const Container = styled.div`
     height: 100%;
     background: linear-gradient(to right, #134e5e, #71b280);
     display: flex;
+    flex-direction: column;
     justify-content: center;
+
+    > span {
+        font-size: 48px;
+        margin-bottom: 50px;
+        margin-top: -50px;
+    }
 
     form {
         align-self: center;
