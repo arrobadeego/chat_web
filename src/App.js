@@ -1,14 +1,19 @@
 import React from 'react';
-import { BrowserRouter } from 'react-router-dom';
+import { ToastContainer } from 'react-toastify';
+import { Router } from 'react-router-dom';
+
 import Routes from './routes';
+import history from './services/history';
+
+import GlobalStyle from './styles/global';
 
 function App() {
     return (
-        <div className="App">
-            <BrowserRouter>
-                <Routes />
-            </BrowserRouter>
-        </div>
+        <Router history={history}>
+            <Routes />
+            <GlobalStyle />
+            <ToastContainer autoClose={3000} />
+        </Router>
     );
 }
 

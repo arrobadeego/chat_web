@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { Form, Input } from '@rocketseat/unform';
 import * as Yup from 'yup';
+import { Container } from './styles';
 
 const schema = Yup.object().shape({
     name: Yup.string().required('O nome é obrigatório'),
@@ -15,7 +16,7 @@ const schema = Yup.object().shape({
 
 export default function SignUp() {
     return (
-        <>
+        <Container>
             <Form schema={schema}>
                 <Input name="name" placeholder="Nome completo" />
                 <Input name="email" type="email" placeholder="Seu e-mail" />
@@ -28,6 +29,6 @@ export default function SignUp() {
                 <button type="submit">Criar conta</button>
                 <Link to="/">Já possuo conta</Link>
             </Form>
-        </>
+        </Container>
     );
 }
