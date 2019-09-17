@@ -2,32 +2,46 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { Form, Input } from '@rocketseat/unform';
 import * as Yup from 'yup';
+
 import { Container } from './styles';
 
 const schema = Yup.object().shape({
-    name: Yup.string().required('O nome é obrigatório'),
+    name: Yup.string().required('Name is required'),
     email: Yup.string()
-        .email('Insira um e-mail válido')
-        .required('O e-mail é obrigatório'),
+        .email('E-mail must be valid')
+        .required('E-mail is required'),
     password: Yup.string()
-        .min(6, 'No mínimo 6 caracteres')
-        .required('A senha é obrigatória'),
+        .min(6, 'The password must have 6 characters at least')
+        .required('Password is required'),
+    passwordConfirmation: Yup.string().oneOf(
+        [Yup.ref('password'), null],
+        'Passwords must match'
+    ),
 });
 
 export default function SignUp() {
+    function handleSubmit({ name, email, password }) {
+        if (schema.isValid) {
+            console.log('Deu certo');
+        } else {
+            console.log('Deu certo');
+        }
+    }
+
     return (
         <Container>
-            <Form schema={schema}>
-                <Input name="name" placeholder="Nome completo" />
-                <Input name="email" type="email" placeholder="Seu e-mail" />
+            <Form schema={schema} onSubmit={handleSubmit}>
+                <Input name="name" placeholder="Name" />
+                <Input name="email" type="email" placeholder="E-mail" />
+                <Input name="password" type="password" placeholder="Password" />
                 <Input
-                    name="password"
+                    name="passwordConfirmation"
                     type="password"
-                    placeholder="Sua senha secreta"
+                    placeholder="Confirm your password"
                 />
 
-                <button type="submit">Criar conta</button>
-                <Link to="/">Já possuo conta</Link>
+                <button type="submit">Create account</button>
+                <Link to="/">I already have an account</Link>
             </Form>
         </Container>
     );
