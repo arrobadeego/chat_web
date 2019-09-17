@@ -1,4 +1,5 @@
 import React from 'react';
+// import { useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { Form, Input } from '@rocketseat/unform';
 import * as Yup from 'yup';
@@ -20,11 +21,11 @@ const schema = Yup.object().shape({
 });
 
 export default function SignUp() {
+    const dispatch = useDispatch();
+
     function handleSubmit({ name, email, password }) {
         if (schema.isValid) {
-            console.log('Deu certo');
-        } else {
-            console.log('Deu certo');
+            // dispatch(signUpRequest(name, email, password));
         }
     }
 
