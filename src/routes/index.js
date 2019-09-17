@@ -1,17 +1,19 @@
 import React from 'react';
-import { Switch, Route } from 'react-router-dom';
+import { Switch } from 'react-router-dom';
 
-// import Login from './pages/Login';
-// import Registration from './pages/Registration';
-// import Main from './pages/Main';
+import Route from './Route';
+
+import Login from '../pages/SignIn';
+import Dashboard from '../pages/Dashboard';
 import SignUp from '../pages/SignUp';
 
 function Routes() {
     return (
         <Switch>
-            {/* <Route path="/" exact component={Login} /> */}
+            <Route path="/" exact component={Login} />
             <Route path="/registration" exact component={SignUp} />
-            {/* <Route path="/main" exact component={Main} /> */}
+
+            <Route path="/dashboard" exact component={Dashboard} isPrivate />
         </Switch>
     );
 }
