@@ -5,7 +5,7 @@ import history from '../../../services/history';
 
 import api from '../../../services/api';
 
-import { signUpSuccess, signFailure } from './actions';
+import { signSuccess, signFailure } from './actions';
 
 export function* signUp({ payload }) {
     try {
@@ -19,7 +19,7 @@ export function* signUp({ payload }) {
 
         const { token, user } = response.data;
 
-        yield put(signUpSuccess(token, user));
+        yield put(signSuccess(token, user));
 
         history.push('/dashboard');
     } catch (err) {
