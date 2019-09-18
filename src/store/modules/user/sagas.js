@@ -10,7 +10,7 @@ import { signSuccess, signFailure } from '../auth/actions';
 export function* signUp({ payload }) {
     try {
         const { name, email, password } = payload;
-
+        console.tron.log('foi chamado!!!');
         const response = yield call(api.post, 'registration', {
             name,
             email,
@@ -28,4 +28,4 @@ export function* signUp({ payload }) {
     }
 }
 
-export default all([takeLatest('@auth/SIGN_UP_REQUEST', signUp)]);
+export default all([takeLatest('@user/SIGN_UP_REQUEST', signUp)]);
