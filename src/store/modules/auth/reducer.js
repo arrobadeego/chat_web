@@ -10,6 +10,8 @@ export default function auth(state = INITIAL_STATE, action) {
                 break;
             }
             case '@auth/SIGN_UP_SUCCESS': {
+                draft.token = action.payload.token;
+                draft.signed = true;
                 draft.loading = false;
                 break;
             }
