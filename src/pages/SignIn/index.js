@@ -28,7 +28,7 @@ export default function SignIn() {
                 <Input name="password" type="password" placeholder="Password" />
 
                 <button type="submit">Sign in</button>
-                <Link to="/">Create account</Link>
+                <Link to="/register">Create account</Link>
             </Form>
         </Container>
     );

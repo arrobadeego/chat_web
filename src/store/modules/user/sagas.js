@@ -5,13 +5,14 @@ import history from '../../../services/history';
 
 import api from '../../../services/api';
 
-import { signSuccess, signFailure } from './actions';
+import { signSuccess, signFailure } from '../auth/actions';
 
-export function* signIn({ payload }) {
+export function* signUp({ payload }) {
     try {
-        const { email, password } = payload;
+        const { name, email, password } = payload;
 
-        const response = yield call(api.post, 'login', {
+        const response = yield call(api.post, 'registration', {
+            name,
             email,
             password,
         });
@@ -27,4 +28,4 @@ export function* signIn({ payload }) {
     }
 }
 
-export default all([takeLatest('@auth/SIGN_IN_REQUEST', signIn)]);
+export default all([takeLatest('@auth/SIGN_UP_REQUEST', signUp)]);
