@@ -3,19 +3,18 @@ import { Switch } from 'react-router-dom';
 
 import Route from './Route';
 
-import Login from '../pages/SignIn';
-import Dashboard from '../pages/Dashboard';
+import SignIn from '../pages/SignIn';
 import SignUp from '../pages/SignUp';
 
-function Routes() {
+import Dashboard from '../pages/Dashboard';
+
+export default function Routes() {
     return (
         <Switch>
-            <Route path="/" exact component={Login} />
-            <Route path="/registration" exact component={SignUp} />
+            <Route path="/" exact component={SignIn} />
+            <Route path="/register" component={SignUp} />
 
-            <Route path="/dashboard" exact component={Dashboard} isPrivate />
+            <Route path="/dashboard" component={Dashboard} isPrivate />
         </Switch>
     );
 }
-
-export default Routes;
