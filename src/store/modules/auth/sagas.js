@@ -16,7 +16,9 @@ export function* signIn({ payload }) {
             password,
         });
 
-        const { token, user } = response.data;
+        const { user } = response.data;
+
+        const token = response.headers.authorization;
 
         yield put(signSuccess(token, user));
 

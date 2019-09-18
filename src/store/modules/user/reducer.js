@@ -1,6 +1,6 @@
 import produce from 'immer';
 
-const INITIAL_STATE = { loading: false };
+const INITIAL_STATE = { profile: null };
 
 export default function user(state = INITIAL_STATE, action) {
     return produce(state, draft => {
@@ -12,6 +12,7 @@ export default function user(state = INITIAL_STATE, action) {
 
             case '@auth/SIGN_SUCCESS': {
                 draft.token = action.payload.token;
+                draft.profile = action.payload.user;
                 draft.signed = true;
                 draft.loading = false;
                 break;

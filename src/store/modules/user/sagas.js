@@ -10,14 +10,15 @@ import { signSuccess, signFailure } from '../auth/actions';
 export function* signUp({ payload }) {
     try {
         const { name, email, password } = payload;
-        console.tron.log('foi chamado!!!');
         const response = yield call(api.post, 'registration', {
             name,
             email,
             password,
         });
 
-        const { token, user } = response.data;
+        const { user } = response.data;
+
+        const token = response.headers.authorization;
 
         yield put(signSuccess(token, user));
 
