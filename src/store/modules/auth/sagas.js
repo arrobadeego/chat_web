@@ -1,8 +1,11 @@
 import { takeLatest, call, put, all } from 'redux-saga/effects';
-import history from 'history';
+import { toast } from 'react-toastify';
+
+import history from '../../../services/history';
 
 import api from '../../../services/api';
-import signUpSuccess from './actions';
+
+import { signUpSuccess, signFailure } from './actions';
 
 export function* signUp({ payload }) {
     const { name, email, password } = payload;
