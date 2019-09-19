@@ -5,7 +5,7 @@ import Dropdown from '../Dropdown';
 
 export default function Contacts() {
     return (
-        <Container>
+        <>
             <Header>
                 <img
                     src="https://api.adorable.io/avatars/50/abott@adorable.png"
@@ -28,6 +28,6 @@ export default function Contacts() {
                     <span>21:59</span>
                 </div>
             </Content>
-        </Container>
+        </>
     );
 }
