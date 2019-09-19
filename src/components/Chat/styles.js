@@ -37,3 +37,45 @@ export const Header = styled.header`
         }
     }
 `;
+
+export const Content = styled.div`
+    background: indigo;
+    width: 95%;
+    height: 90%;
+    margin: 0 auto;
+    margin-top: 10px;
+    border-radius: 7px;
+
+    display: flex;
+    flex-direction: column;
+`;
+
+export const ChatContent = styled.div`
+    height: 100%;
+    background: thistle;
+    margin-bottom: 5%;
+`;
+
+export const MessageSender = styled.div`
+    height: 20%;
+    width: 100%;
+    padding: 10px;
+    /* height: 100px; */
+    background: orange;
+    /* position: absolute; */
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    justify-items: center;
+    align-items: center;
+
+    input {
+        width: 100%;
+        height: 60%;
+        border-radius: 7px;
+        border-style: none;
+        padding-left: 25px;
+        padding-right: 25px;
+        margin-right: 8px;
+    }
+`;

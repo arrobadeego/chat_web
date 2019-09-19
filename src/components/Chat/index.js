@@ -1,6 +1,13 @@
 import React from 'react';
+import { MdSend } from 'react-icons/md';
 
-import { Container, Header } from './styles';
+import {
+    Container,
+    Header,
+    Content,
+    ChatContent,
+    MessageSender,
+} from './styles';
 
 export default function Chat() {
     return (
@@ -16,6 +23,14 @@ export default function Chat() {
                     <span>Online</span>
                 </div>
             </Header>
+            <Content>
+                <ChatContent>
+                </ChatContent>
+                <MessageSender>
+                    <input placeholder="type your message" />
+                    <MdSend size={20} />
+                </MessageSender>
+            </Content>
         </Container>
     );
 }
