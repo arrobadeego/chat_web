@@ -1,11 +1,21 @@
 import React from 'react';
 
-import { Container } from './styles';
+import { Container, Header } from './styles';
 
 export default function Chat() {
     return (
         <Container>
-            <h1>Chat</h1>
+            <Header>
+                <img
+                    src="https://api.adorable.io/avatars/50/abott@adorable.png"
+                    alt=""
+                />
+
+                <div>
+                    <span>Jobson</span>
+                    <span>Online</span>
+                </div>
+            </Header>
         </Container>
     );
 }

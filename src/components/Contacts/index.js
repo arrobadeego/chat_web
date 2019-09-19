@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 import { Container, Header } from './styles';
 import Dropdown from '../Dropdown';
