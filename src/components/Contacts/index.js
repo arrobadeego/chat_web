@@ -1,7 +1,7 @@
-import React from 'react';
-import { MdMoreVert } from 'react-icons/md';
+import React, { useState } from 'react';
 
 import { Container, Header } from './styles';
+import Dropdown from '../Dropdown';
 
 export default function Contacts() {
     return (
@@ -11,7 +11,8 @@ export default function Contacts() {
                     src="https://api.adorable.io/avatars/50/abott@adorable.png"
                     alt=""
                 />
-                <MdMoreVert size={30} />
+
+                <Dropdown />
             </Header>
         </Container>
     );
