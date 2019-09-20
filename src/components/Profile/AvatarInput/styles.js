@@ -33,8 +33,6 @@ export const Container = styled.div`
             visibility: hidden;
             opacity: 0;
             border-radius: 50%;
-
-            /* transition effect. not necessary */
             transition: opacity 0.2s, visibility 0.2s;
         }
     }

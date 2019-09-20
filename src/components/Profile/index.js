@@ -1,4 +1,5 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
 import { Form, Input } from '@rocketseat/unform';
 import { MdKeyboardBackspace } from 'react-icons/md';
 import * as Yup from 'yup';
@@ -8,20 +9,24 @@ import AvatarInput from './AvatarInput';
 import { Header, Content } from './styles';
 
 const schema = Yup.object().shape({
-    name: Yup.string().required('Name is required'),
-    email: Yup.string()
-        .email('E-mail must be valid')
-        .required('E-mail is required'),
-    password: Yup.string()
-        .min(6, 'The password must have 6 characters at least')
-        .required('Password is required'),
-    passwordConfirmation: Yup.string().oneOf(
-        [Yup.ref('password'), null],
-        'Passwords must match'
+    name: Yup.string(),
+    email: Yup.string().email(),
+    oldPassword: Yup.string(),
+    password: Yup.string().when('oldPassword', (oldPassword, field) =>
+        oldPassword ? field.required('Senha é obrigatória') : field
+    ),
+    confirmPassword: Yup.string().when('password', (password, field) =>
+        password
+            ? field
+                  .required('Confirmação da senha é obrigatória')
+                  .oneOf([Yup.ref('password')])
+            : field
     ),
 });
 
 export default function Profile() {
+    const profile = useSelector(state => state.user.profile);
+
     return (
         <>
             <Header>
@@ -29,20 +34,28 @@ export default function Profile() {
                 <span>Profile</span>
             </Header>
             <Content>
-                <Form schema={schema}>
+                <Form initialData={profile} schema={schema}>
                     <AvatarInput />
                     <Input name="name" placeholder="Name" />
                     <Input name="email" type="email" placeholder="E-mail" />
                     <Input
-                        name="password"
+                        name="oldPassword"
                         type="password"
-                        placeholder="Password"
+                        placeholder="Old password"
                     />
                     <Input
-                        name="passwordConfirmation"
+                        name="password"
                         type="password"
-                        placeholder="Confirm your password"
+                        placeholder="New password"
                     />
+
+                    <Input
+                        type="confirmPassword"
+                        name="passwordConfirmation"
+                        placeholder="Confirm your new password"
+                    />
+
+                    <button type="submit">Update</button>
                 </Form>
             </Content>
         </>
