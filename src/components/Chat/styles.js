@@ -60,9 +60,7 @@ export const MessageSender = styled.div`
     height: 20%;
     width: 100%;
     padding: 10px;
-    /* height: 100px; */
     background: orange;
-    /* position: absolute; */
     bottom: 0;
     display: flex;
     justify-content: center;

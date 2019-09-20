@@ -59,6 +59,8 @@ export default function AvatarInput() {
                     onChange={handleChange}
                     ref={ref}
                 />
+
+                <span>Click on image to change it</span>
             </label>
         </Container>
     );
