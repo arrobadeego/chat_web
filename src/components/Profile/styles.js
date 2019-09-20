@@ -1,5 +1,19 @@
 import styled from 'styled-components';
 
+export const Header = styled.header`
+    background: greenyellow;
+    height: 50px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    padding: 20px;
+
+    > span {
+        margin-left: 5px;
+        font-size: 16px;
+    }
+`;
+
 export const Content = styled.div`
     margin-top: 50px;
     display: flex;

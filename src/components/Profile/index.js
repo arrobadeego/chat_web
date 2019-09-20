@@ -1,10 +1,11 @@
 import React from 'react';
 import { Form, Input } from '@rocketseat/unform';
+import { MdKeyboardBackspace } from 'react-icons/md';
 import * as Yup from 'yup';
 
 import AvatarInput from './AvatarInput';
 
-import { Content } from './styles';
+import { Header, Content } from './styles';
 
 const schema = Yup.object().shape({
     name: Yup.string().required('Name is required'),
@@ -22,18 +23,28 @@ const schema = Yup.object().shape({
 
 export default function Profile() {
     return (
-        <Content>
-            <Form schema={schema}>
-                <AvatarInput />
-                <Input name="name" placeholder="Name" />
-                <Input name="email" type="email" placeholder="E-mail" />
-                <Input name="password" type="password" placeholder="Password" />
-                <Input
-                    name="passwordConfirmation"
-                    type="password"
-                    placeholder="Confirm your password"
-                />
-            </Form>
-        </Content>
+        <>
+            <Header>
+                <MdKeyboardBackspace size={25} />
+                <span>Profile</span>
+            </Header>
+            <Content>
+                <Form schema={schema}>
+                    <AvatarInput />
+                    <Input name="name" placeholder="Name" />
+                    <Input name="email" type="email" placeholder="E-mail" />
+                    <Input
+                        name="password"
+                        type="password"
+                        placeholder="Password"
+                    />
+                    <Input
+                        name="passwordConfirmation"
+                        type="password"
+                        placeholder="Confirm your password"
+                    />
+                </Form>
+            </Content>
+        </>
     );
 }
