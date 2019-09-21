@@ -1,13 +1,14 @@
 import styled from 'styled-components';
+import { darken } from 'polished';
 
 export const Container = styled.div`
-    background: yellow;
     height: 100%;
     width: 100%;
+    background: ${darken(0.03, '#eee')};
 `;
 
 export const Header = styled.header`
-    background: aqua;
+    background: #71b280;
     height: 50px;
     width: 100%;
     display: flex;
@@ -28,7 +29,7 @@ export const Header = styled.header`
 
         span:first-child {
             font-weight: bolder;
-            color: purple;
+            color: #134e5e;
         }
 
         span:last-child {
@@ -44,21 +45,19 @@ export const Content = styled.div`
     margin: 0 auto;
     margin-top: 10px;
     border-radius: 7px;
-
+    background: #eee;
     display: flex;
     flex-direction: column;
 `;
 
 export const ChatContent = styled.div`
     height: 100%;
-    background: thistle;
 `;
 
 export const MessageSender = styled.div`
-    height: 20%;
+    height: 100px;
     width: 100%;
     padding: 10px;
-    background: orange;
     bottom: 0;
     display: flex;
     justify-content: center;
@@ -67,6 +66,7 @@ export const MessageSender = styled.div`
 
     input {
         width: 100%;
+        max-height: 40px;
         height: 60%;
         border-radius: 7px;
         border-style: none;

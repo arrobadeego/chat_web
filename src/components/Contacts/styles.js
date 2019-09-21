@@ -1,13 +1,12 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
-    background: deeppink;
     height: 100%;
     width: 50%;
 `;
 
 export const Header = styled.header`
-    background: greenyellow;
+    background: #71b280;
     height: 50px;
     width: 100%;
     display: flex;
@@ -24,7 +23,7 @@ export const Header = styled.header`
 `;
 
 export const Content = styled.div`
-    background: MediumSpringGreen;
+    background: #eee;
     height: 50px;
     width: 100%;
     display: flex;

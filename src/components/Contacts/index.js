@@ -42,7 +42,7 @@ export default function Contacts(props) {
 
                 <DropDownContainer ref={container}>
                     <button type="button" className="button">
-                        <MdMoreVert size={30} onClick={handleClick} />
+                        <MdMoreVert size={30} onClick={handleClick} color="#fff" />
                     </button>
 
                     {isDropdownOpen ? (

@@ -28,7 +28,7 @@ export default function Chat() {
                 </ChatContent>
                 <MessageSender>
                     <input placeholder="type your message" />
-                    <MdSend size={20} />
+                    <MdSend size={25} />
                 </MessageSender>
             </Content>
         </Container>
