@@ -4,6 +4,7 @@ import { Form, Input } from '@rocketseat/unform';
 import { MdKeyboardBackspace } from 'react-icons/md';
 import * as Yup from 'yup';
 
+// import Sidemenu from '../Sidemenu';
 import AvatarInput from './AvatarInput';
 
 import { Header, Content } from './styles';
@@ -24,13 +25,16 @@ const schema = Yup.object().shape({
     ),
 });
 
-export default function Profile() {
+export default function Profile({handleClickAction}) {
     const profile = useSelector(state => state.user.profile);
 
     return (
         <>
             <Header>
-                <MdKeyboardBackspace size={25} />
+                <MdKeyboardBackspace
+                    size={25}
+                    onClick={() => handleClickAction('Contacts')}
+                />
                 <span>Profile</span>
             </Header>
             <Content>

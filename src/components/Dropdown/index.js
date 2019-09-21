@@ -3,9 +3,9 @@ import { MdMoreVert } from 'react-icons/md';
 
 import { Container, DropdownContainer } from './styles';
 
-export default function Dropdown() {
+export default function Dropdown({ handleClickOnList }) {
     const [isDropdownOpen, setIsDropdownOpen] = useState(false);
-    const [container, setContainer] = useState(React.createRef());
+    const [container] = useState(React.createRef());
 
     function handleClick() {
         setIsDropdownOpen(!isDropdownOpen);
@@ -33,7 +33,7 @@ export default function Dropdown() {
             {isDropdownOpen ? (
                 <DropdownContainer>
                     <ul>
-                        <li>Profile</li>
+                        <li onClick={() => handleClickOnList(1)}>Profile</li>
                         <li>Add new contact</li>
                         <li>Logout</li>
                     </ul>
