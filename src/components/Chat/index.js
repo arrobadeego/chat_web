@@ -7,6 +7,8 @@ import {
     Content,
     ChatContent,
     MessageSender,
+    MessageReceived,
+    MessageSent,
 } from './styles';
 
 export default function Chat() {
@@ -25,6 +27,20 @@ export default function Chat() {
             </Header>
             <Content>
                 <ChatContent>
+                    <ul>
+                        <li>
+                            <MessageReceived>
+                                <span>Pessoal</span>
+                                <span>21h59</span>
+                            </MessageReceived>
+                        </li>
+                        <li>
+                            <MessageSent>
+                                <span>Teu cu</span>
+                                <span>21h59</span>
+                            </MessageSent>
+                        </li>
+                    </ul>
                 </ChatContent>
                 <MessageSender>
                     <input placeholder="type your message" />
