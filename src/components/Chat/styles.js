@@ -39,7 +39,6 @@ export const Header = styled.header`
 `;
 
 export const Content = styled.div`
-    background: indigo;
     width: 95%;
     height: 90%;
     margin: 0 auto;
@@ -53,7 +52,6 @@ export const Content = styled.div`
 export const ChatContent = styled.div`
     height: 100%;
     background: thistle;
-    margin-bottom: 5%;
 `;
 
 export const MessageSender = styled.div`

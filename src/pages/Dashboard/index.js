@@ -38,7 +38,6 @@ export default function Dashboard(props) {
             }
 
             default: {
-                // console.log('Default');
                 return setCurrentComponent2(
                     <Contacts handleClickAction={handleSetComponent} />
                 );
