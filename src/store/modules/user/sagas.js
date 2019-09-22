@@ -7,6 +7,8 @@ import api from '../../../services/api';
 
 import { signSuccess, signFailure } from '../auth/actions';
 
+import { updateProfileSuccess, updateProfileFailure } from './actions';
+
 export function* signUp({ payload }) {
     try {
         const { name, email, password } = payload;
@@ -29,4 +31,32 @@ export function* signUp({ payload }) {
     }
 }
 
-export default all([takeLatest('@user/SIGN_UP_REQUEST', signUp)]);
+export function* updateProfile({ payload }) {
+    try {
+        const { name, email, avatar, ...rest } = payload.data;
+
+        const profile = {
+            name,
+            email,
+            avatar,
+            ...(rest.oldPassword ? rest : {}),
+        };
+
+        const response = yield call(api.put, 'users', profile);
+
+        toast.success('Profile was successful updated');
+
+        yield put(updateProfileSuccess(response.data));
+    } catch (error) {
+        toast.error('Error on update your profile, check your data');
+        yield put(updateProfileFailure());
+    }
+}
+
+export default all([
+    takeLatest(
+        '@user/SIGN_UP_REQUEST',
+        signUp,
+        takeLatest('@user/UPDATE_PROFILE_REQUEST', updateProfile)
+    ),
+]);
