@@ -7,8 +7,6 @@ import Sidemenu from '../../components/Sidemenu';
 import Profile from '../../components/Profile';
 
 export default function Dashboard(props) {
-    console.log('############');
-    console.log(props);
 
     const { CurrentComponent } = props;
 
@@ -21,17 +19,17 @@ export default function Dashboard(props) {
     }, []);
 
     function handleSetComponent(e) {
-        console.log(`Entrou no ${e}`);
+
         switch (e) {
             case 'Contacts': {
-                console.log('jdifsdoifjsdoifjsiodfjoisd');
+
                 return setCurrentComponent2(
                     <Contacts handleClickAction={handleSetComponent} />
                 );
             }
 
             case 'Profile': {
-                console.log('erefdfdsfsdf');
+
                 return setCurrentComponent2(
                     <Profile handleClickAction={handleSetComponent} />
                 );

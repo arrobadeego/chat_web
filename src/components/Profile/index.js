@@ -5,7 +5,7 @@ import { MdKeyboardBackspace } from 'react-icons/md';
 import * as Yup from 'yup';
 
 // import Sidemenu from '../Sidemenu';
-import { updateProfileRequest } from '~/store/modules/user/actions';
+import { updateProfileRequest } from '../../store/modules/user/actions';
 import AvatarInput from './AvatarInput';
 
 import { Header, Content } from './styles';

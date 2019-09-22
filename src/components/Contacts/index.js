@@ -4,14 +4,13 @@ import { MdMoreVert } from 'react-icons/md';
 import { Header, Content, DropDownContainer, DropDownContent } from './styles';
 
 export default function Contacts(props) {
-    // console.log(props);
-    const {handleClickAction} = props;
+    const { handleClickAction } = props;
 
     const [isDropdownOpen, setIsDropdownOpen] = useState(false);
     const [container] = useState(React.createRef());
 
     // function handleClickNavigation(e) {
-    //     console.log(e);
+
     //     handleClickAction = e;
     // }
 
@@ -42,7 +41,11 @@ export default function Contacts(props) {
 
                 <DropDownContainer ref={container}>
                     <button type="button" className="button">
-                        <MdMoreVert size={30} onClick={handleClick} color="#fff" />
+                        <MdMoreVert
+                            size={30}
+                            onClick={handleClick}
+                            color="#fff"
+                        />
                     </button>
 
                     {isDropdownOpen ? (
@@ -51,7 +54,7 @@ export default function Contacts(props) {
                                 <li>
                                     <a
                                         onClick={() =>
-                                            { console.log("xinim"); handleClickAction('Profile')}
+                                            handleClickAction('Profile')
                                         }
                                     >
                                         Profile

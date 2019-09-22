@@ -32,6 +32,7 @@ export function* signUp({ payload }) {
 }
 
 export function* updateProfile({ payload }) {
+
     try {
         const { name, email, avatar, ...rest } = payload.data;
 
@@ -41,6 +42,10 @@ export function* updateProfile({ payload }) {
             avatar,
             ...(rest.oldPassword ? rest : {}),
         };
+
+        api.defaults.headers.Authorization = `Bearer ${localStorage.getItem(
+            'Authorization'
+        )}`;
 
         const response = yield call(api.put, 'users', profile);
 
@@ -54,9 +59,6 @@ export function* updateProfile({ payload }) {
 }
 
 export default all([
-    takeLatest(
-        '@user/SIGN_UP_REQUEST',
-        signUp,
-        takeLatest('@user/UPDATE_PROFILE_REQUEST', updateProfile)
-    ),
+    takeLatest('@user/SIGN_UP_REQUEST', signUp),
+    takeLatest('@user/UPDATE_PROFILE_REQUEST', updateProfile),
 ]);

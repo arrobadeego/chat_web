@@ -26,7 +26,6 @@ export default function SignUp() {
     const dispatch = useDispatch();
 
     function handleSubmit({ name, email, password }) {
-        console.tron.log('Clicou aqui');
         dispatch(signUpRequest(name, email, password));
     }
 
