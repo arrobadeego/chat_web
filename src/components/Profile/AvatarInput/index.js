@@ -9,14 +9,14 @@ export default function AvatarInput() {
     const { defaultValue, registerField } = useField('avatar');
 
     const [file, setFile] = useState(defaultValue && defaultValue.id);
-    const [preview, setPreview] = useState(defaultValue && defaultValue.url);
+    const [preview, setPreview] = useState(defaultValue);
 
     const ref = useRef();
 
     useEffect(() => {
         if (ref.current) {
             registerField({
-                name: 'avatar_id',
+                name: 'avatar',
                 ref: ref.current,
                 path: 'dataset.file',
             });
@@ -42,7 +42,7 @@ export default function AvatarInput() {
 
     return (
         <Container>
-            <label htmlFor="cover">
+            <label htmlFor="avatar">
                 <img
                     src={
                         preview ||
@@ -53,7 +53,7 @@ export default function AvatarInput() {
 
                 <input
                     type="file"
-                    id="cover"
+                    id="avatar"
                     accept="image/*"
                     data-file={file}
                     onChange={handleChange}

@@ -79,16 +79,16 @@ export const MessageSender = styled.div`
 export const MessageReceived = styled.div`
     height: 100%;
     width: auto;
-    background: ${darken(0.09, '#eee')};
+    background: #134e5e;
     margin: 10px;
     margin-left: 25px;
     padding: 10px;
     border-radius: 10px;
     display: inline-block;
     align-items: left;
+    color: #fff;
 
     position: relative;
-    background: #00aabb;
     border-radius: 0.4em;
 
     span:first-child {
@@ -108,7 +108,7 @@ export const MessageReceived = styled.div`
         width: 0;
         height: 0;
         border: 20px solid transparent;
-        border-right-color: #00aabb;
+        border-right-color: #134e5e;
         border-left: 0;
         border-top: 0;
         margin-top: -10px;
@@ -119,17 +119,15 @@ export const MessageReceived = styled.div`
 export const MessageSent = styled.div`
     height: 100%;
     width: auto;
-    background: ${darken(0.09, '#eee')};
+    background: #134e5e;
     margin: 10px;
     margin-right: 25px;
     padding: 10px;
     border-radius: 10px;
-    display: inline-block;
-    align-items: right;
     float: right;
+    color: #fff;
 
     position: relative;
-    background: #00aabb;
     border-radius: 0.4em;
 
     span:first-child {
@@ -149,7 +147,7 @@ export const MessageSent = styled.div`
         width: 0;
         height: 0;
         border: 20px solid transparent;
-        border-left-color: #00aabb;
+        border-left-color: #134e5e;
         border-right: 0;
         border-top: 0;
         margin-top: -10px;

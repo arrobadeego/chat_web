@@ -86,7 +86,7 @@ export const DropDownContent = styled.div`
     z-index: 2;
     border: 1px solid rgba(0, 0, 0, 0.04);
     box-shadow: 0 16px 24px 2px rgba(0, 0, 0, 0.14);
-    background: blue;
+    background: #71b280;
 
     ul {
         list-style: none;

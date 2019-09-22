@@ -39,7 +39,7 @@ export default function Profile({handleClickAction}) {
             </Header>
             <Content>
                 <Form initialData={profile} schema={schema}>
-                    <AvatarInput />
+                    <AvatarInput name="avatar" />
                     <Input name="name" placeholder="Name" />
                     <Input name="email" type="email" placeholder="E-mail" />
                     <Input
