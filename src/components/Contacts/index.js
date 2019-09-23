@@ -59,9 +59,15 @@ export default function Contacts(props) {
                                 <li
                                     onClick={() => handleClickAction('Profile')}
                                 >
-                                    <a>Profile</a>
+                                    Profile
                                 </li>
-                                <li>Add new contact</li>
+                                <li
+                                    onClick={() =>
+                                        handleClickAction('NewContact')
+                                    }
+                                >
+                                    Add new contact
+                                </li>
                                 <li>Logout</li>
                             </ul>
                         </DropDownContent>
