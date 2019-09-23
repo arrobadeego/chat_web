@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from 'react';
+import { useSelector } from 'react-redux';
 import { MdMoreVert } from 'react-icons/md';
 
 import { Header, Content, DropDownContainer, DropDownContent } from './styles';
 
 export default function Contacts(props) {
     const { handleClickAction } = props;
+    const { avatar } = useSelector(state => state.user.profile);
 
     const [isDropdownOpen, setIsDropdownOpen] = useState(false);
     const [container] = useState(React.createRef());
@@ -35,7 +37,10 @@ export default function Contacts(props) {
         <>
             <Header>
                 <img
-                    src="https://api.adorable.io/avatars/50/abott@adorable.png"
+                    src={
+                        avatar ||
+                        'https://api.adorable.io/avatars/50/abott@adorable.png'
+                    }
                     alt=""
                 />
 
@@ -51,14 +56,10 @@ export default function Contacts(props) {
                     {isDropdownOpen ? (
                         <DropDownContent>
                             <ul>
-                                <li>
-                                    <a
-                                        onClick={() =>
-                                            handleClickAction('Profile')
-                                        }
-                                    >
-                                        Profile
-                                    </a>
+                                <li
+                                    onClick={() => handleClickAction('Profile')}
+                                >
+                                    <a>Profile</a>
                                 </li>
                                 <li>Add new contact</li>
                                 <li>Logout</li>
