@@ -31,3 +31,15 @@ export function sendInviteRequest(email) {
         payload: { email },
     };
 }
+
+export function sendInviteSuccess() {
+    return {
+        type: '@user/SEND_INVITE_SUCCESS',
+    };
+}
+
+export function sendInviteFailure() {
+    return {
+        type: '@user/SEND_INVITE_FAILURE',
+    };
+}
