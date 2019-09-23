@@ -24,3 +24,10 @@ export function updateProfileFailure() {
         type: '@user/UPDATE_PROFILE_FAILURE',
     };
 }
+
+export function sendInviteRequest(email) {
+    return {
+        type: '@user/SEND_INVITE_REQUEST',
+        payload: { email },
+    };
+}
