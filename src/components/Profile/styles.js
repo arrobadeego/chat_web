@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import { darken } from 'polished';
 
 export const Header = styled.header`
-    background: linear-gradient(to right, #134e5e, #71b280);
+    background: #71b280;
     height: 50px;
     width: 100%;
     display: flex;
