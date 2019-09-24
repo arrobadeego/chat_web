@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useSelector } from 'react-redux';
-import { MdMoreVert } from 'react-icons/md';
+import { MdMoreVert, MdNotifications } from 'react-icons/md';
 
 import { Header, Content, DropDownContainer, DropDownContent } from './styles';
 
@@ -43,7 +43,7 @@ export default function Contacts(props) {
                     }
                     alt=""
                 />
-
+                
                 <DropDownContainer ref={container}>
                     <button type="button" className="button">
                         <MdMoreVert

@@ -63,7 +63,6 @@ export function* updateProfile({ payload }) {
 }
 
 export function* sendInvite({ payload }) {
-    console.tron.log(`payload: ${payload}`);
     try {
         const { email } = payload;
 
@@ -73,13 +72,10 @@ export function* sendInvite({ payload }) {
 
         const response = yield call(api.post, 'invites', email);
 
-        console.tron.log(response);
-
         toast.success('The invite was send');
 
         yield put(sendInviteSuccess());
     } catch (error) {
-        console.tron.log(`Erro: ${error}`);
         const { email } = payload;
         toast.error(`Was impossible to send invite to ${email}.`);
         yield put(sendInviteFailure());
