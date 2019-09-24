@@ -63,17 +63,25 @@ export function* updateProfile({ payload }) {
 }
 
 export function* sendInvite({ payload }) {
+    console.tron.log(`payload: ${payload}`);
     try {
-        const { email } = payload.data;
+        const { email } = payload;
 
-        yield call(api.post, 'invites', email);
+        api.defaults.headers.Authorization = `Bearer ${localStorage.getItem(
+            'Authorization'
+        )}`;
+
+        const response = yield call(api.post, 'invites', email);
+
+        console.tron.log(response);
 
         toast.success('The invite was send');
 
         yield put(sendInviteSuccess());
     } catch (error) {
-        const { email } = payload.data;
-        toast.error(`Was impossible to send invite to ${email}`);
+        console.tron.log(`Erro: ${error}`);
+        const { email } = payload;
+        toast.error(`Was impossible to send invite to ${email}.`);
         yield put(sendInviteFailure());
     }
 }

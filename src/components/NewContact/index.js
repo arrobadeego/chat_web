@@ -1,10 +1,18 @@
 import React from 'react';
+import { useDispatch } from 'react-redux';
 import { Form, Input } from '@rocketseat/unform';
 import { MdKeyboardBackspace } from 'react-icons/md';
+
+import { sendInviteRequest } from '../../store/modules/user/actions';
 
 import { Header, Content } from './styles';
 
 export default function NewContact({ handleClickAction }) {
+    const dispatch = useDispatch();
+
+    function handleSubmit(data) {
+        dispatch(sendInviteRequest(data));
+    }
     return (
         <>
             <Header>
@@ -15,7 +23,7 @@ export default function NewContact({ handleClickAction }) {
                 <span>Add new contact</span>
             </Header>
             <Content>
-                <Form>
+                <Form onSubmit={handleSubmit}>
                     <p>You can add your friends by e-mail</p>
                     <Input name="email" type="email" placeholder="E-mail" />
                     <button type="submit">Add</button>
