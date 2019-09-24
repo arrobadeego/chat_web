@@ -7,7 +7,12 @@ import api from '../../../services/api';
 
 import { signSuccess, signFailure } from '../auth/actions';
 
-import { updateProfileSuccess, updateProfileFailure } from './actions';
+import {
+    updateProfileSuccess,
+    updateProfileFailure,
+    sendInviteSuccess,
+    sendInviteFailure,
+} from './actions';
 
 export function* signUp({ payload }) {
     try {
@@ -32,7 +37,6 @@ export function* signUp({ payload }) {
 }
 
 export function* updateProfile({ payload }) {
-
     try {
         const { name, email, avatar, ...rest } = payload.data;
 
@@ -58,7 +62,24 @@ export function* updateProfile({ payload }) {
     }
 }
 
+export function* sendInvite({ payload }) {
+    try {
+        const { email } = payload.data;
+
+        yield call(api.post, 'invites', email);
+
+        toast.success('The invite was send');
+
+        yield put(sendInviteSuccess());
+    } catch (error) {
+        const { email } = payload.data;
+        toast.error(`Was impossible to send invite to ${email}`);
+        yield put(sendInviteFailure());
+    }
+}
+
 export default all([
     takeLatest('@user/SIGN_UP_REQUEST', signUp),
     takeLatest('@user/UPDATE_PROFILE_REQUEST', updateProfile),
+    takeLatest('@user/SEND_INVITE_REQUEST', sendInvite),
 ]);
