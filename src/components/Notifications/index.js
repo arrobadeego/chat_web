@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useMemo } from 'react';
 import { MdNotifications } from 'react-icons/md';
 
-import api from '~/services/api';
+import api from '../../services/api';
 
 import {
     Container,
@@ -20,59 +20,47 @@ export default function Notifications() {
         [notifications]
     );
 
-    useEffect(() => {
-        async function loadNotifications() {
-            const response = await api.get('notifications');
-            const data = response.data.map(notification => ({
-                ...notification,
-            }));
-            setNotifications(data);
-        }
-        loadNotifications();
-    }, []);
+    // useEffect(() => {
+    //     async function loadNotifications() {
+    //         const response = await api.get('notifications');
+    //         const data = response.data.map(notification => ({
+    //             ...notification,
+    //         }));
+    //         setNotifications(data);
+    //     }
+    //     loadNotifications();
+    // }, []);
 
     function handleToggleVisible() {
         setVisible(!visible);
     }
 
     async function handleMarkAsRead(id) {
-        await api.put(`notifications/${id}`);
-
-        setNotifications(
-            notifications.map(notification =>
-                notification._id === id
-                    ? { ...notification, read: true }
-                    : notification
-            )
-        );
+        // await api.put(`notifications/${id}`);
+        // setNotifications(
+        //     notifications.map(notification =>
+        //         notification._id === id
+        //             ? { ...notification, read: true }
+        //             : notification
+        //     )
+        // );
     }
 
     return (
         <Container>
             <Badge onClick={handleToggleVisible} hasUnread={hasUnread}>
-                <MdNotifications color="#7159c1" size={20} />
+                <MdNotifications color="#fff" size={20} />
             </Badge>
 
             <NotificationList visible={visible}>
                 <Scroll>
-                    {notifications.map(notification => (
-                        <Notification
-                            key={notification._id}
-                            unread={!notification.read}
-                        >
-                            <p>{notification.content}</p>
-                            {!notification.read && (
-                                <button
-                                    onClick={() =>
-                                        handleMarkAsRead(notification._id)
-                                    }
-                                    type="button"
-                                >
-                                    Mark as read
-                                </button>
-                            )}
-                        </Notification>
-                    ))}
+                    <Notification>
+                        <p>Daniel add you (daniel@bol.com) </p>
+                        <div>
+                            <a>Aceitar</a>
+                            <a>Recusar</a>
+                        </div>
+                    </Notification>
                 </Scroll>
             </NotificationList>
         </Container>

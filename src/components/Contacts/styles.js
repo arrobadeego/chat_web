@@ -14,11 +14,21 @@ export const Header = styled.header`
     justify-content: space-between;
     padding: 20px;
 
-    img {
-        width: 36px;
-        height: 36px;
-        border-radius: 50%;
-        border: 3px solid red;
+    > div {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+
+        img {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            border: 3px solid red;
+        }
+
+        svg {
+            margin-left: 5px;
+        }
     }
 `;
 
