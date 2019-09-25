@@ -30,13 +30,13 @@ export default function Chat() {
                     <ul>
                         <li>
                             <MessageReceived>
-                                <span>Pessoal</span>
+                                <span>Oi</span>
                                 <span>21h59</span>
                             </MessageReceived>
                         </li>
                         <li>
                             <MessageSent>
-                                <span>Teu cu</span>
+                                <span>Oi</span>
                                 <span>21h59</span>
                             </MessageSent>
                         </li>

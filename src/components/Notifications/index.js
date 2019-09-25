@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useMemo } from 'react';
+import { useSelector } from 'react-redux';
 import { MdNotifications } from 'react-icons/md';
 
 import api from '../../services/api';
@@ -14,6 +15,9 @@ import {
 export default function Notifications() {
     const [visible, setVisible] = useState(false);
     const [notifications, setNotifications] = useState([]);
+
+    const { received } = useSelector(state => state.user.profile);
+    console.tron.log(received);
 
     const hasUnread = useMemo(
         () => !!notifications.find(notification => notification.read === false),
@@ -55,11 +59,15 @@ export default function Notifications() {
             <NotificationList visible={visible}>
                 <Scroll>
                     <Notification>
-                        <p>Daniel add you (daniel@bol.com) </p>
-                        <div>
-                            <a>Aceitar</a>
-                            <a>Recusar</a>
-                        </div>
+                        {received.map(r => (
+                            <>
+                                <p>{`${r.name} added you (${r.email})`}</p>
+                                <div>
+                                    <a>Aceitar</a>
+                                    <a>Recusar</a>
+                                </div>
+                            </>
+                        ))}
                     </Notification>
                 </Scroll>
             </NotificationList>

@@ -81,7 +81,7 @@ export default function Contacts(props) {
                 <div>
                     <div>
                         <span>Jobson</span>
-                        <span>Teu cu</span>
+                        <span>Oi</span>
                     </div>
                     <span>21:59</span>
                 </div>
