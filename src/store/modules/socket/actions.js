@@ -1,6 +1,6 @@
-export function notifyInvite(data) {
+export function notifyInvite(profile) {
     return {
         type: '@socket/NOTIFY_INVITE',
-        payload: { data },
+        payload: { profile },
     };
 }
