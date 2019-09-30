@@ -1,9 +1,9 @@
-import React from 'react';
 import io from 'socket.io-client';
+
+import { store } from '../store';
 
 import { notifyInvite } from '../store/modules/socket/actions';
 
-// const Socket = dispatch => {
 const socket = io('http://localhost:3333');
 
 socket.on('connect', data => {
@@ -26,8 +26,3 @@ socket.on('connect', data => {
     //     setData(data.name);
     // });
 });
-
-//     return socket;
-// };
-
-// export default Socket;
