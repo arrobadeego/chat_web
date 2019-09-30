@@ -1,1 +1,1 @@
-export const ADD_MESSAGE = 'NOTIFY_INVITE';
+export const NOTIFY_INVITE = 'NOTIFY_INVITE';
