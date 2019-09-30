@@ -1,28 +1,26 @@
 import io from 'socket.io-client';
 
-import { store } from '../store';
-
 import { notifyInvite } from '../store/modules/socket/actions';
+import * as types from '../constants/ActionTypes';
 
-const socket = io('http://localhost:3333');
+const setupSocket = dispatch => {
+    const socket = io('http://localhost:3333');
 
-socket.on('connect', data => {
-    console.log('Socket connected');
-    console.log(data);
+    socket.on('connect', event => {
+        console.log('Socket connected');
+        console.log(event);
 
-    socket.on('notifyInvite', s => {
-        console.log(s);
+        const data = JSON.parse(event.data);
+        switch (data.type) {
+            case types.NOTIFY_INVITE:
+                dispatch(notifyInvite(data));
+                break;
+            default:
+                break;
+        }
     });
 
-    // switch (data) {
-    //     case 'notifyInvite': {
-    //         // dispatch(notifyInvite);
-    //         break;
-    //     }
+    return socket;
+};
 
-    //     default:
-    // }
-    // socket.on('teste', data => {
-    //     setData(data.name);
-    // });
-});
+export default setupSocket;
