@@ -1,5 +1,6 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { useState, useEffect, useMemo } from 'react';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { MdNotifications } from 'react-icons/md';
 
 import api from '../../services/api';
@@ -15,6 +16,8 @@ import {
 export default function Notifications() {
     const [visible, setVisible] = useState(false);
     const [notifications, setNotifications] = useState([]);
+
+    const dispatch = useDispatch();
 
     const { received } = useSelector(state => state.user.profile);
     console.tron.log(received);
@@ -39,6 +42,11 @@ export default function Notifications() {
         setVisible(!visible);
     }
 
+    function handleFriendRequest(response, id) {
+        console.log(response);
+        console.log(id);
+    }
+
     async function handleMarkAsRead(id) {
         // await api.put(`notifications/${id}`);
         // setNotifications(
@@ -58,17 +66,32 @@ export default function Notifications() {
 
             <NotificationList visible={visible}>
                 <Scroll>
-                    <Notification>
-                        {received.map(r => (
+                    {received.map(r => (
+                        <Notification>
                             <>
                                 <p>{`${r.name} added you (${r.email})`}</p>
                                 <div>
-                                    <a>Aceitar</a>
-                                    <a>Recusar</a>
+                                    <a
+                                        onClick={() =>
+                                            handleFriendRequest(true, r.user_id)
+                                        }
+                                    >
+                                        Accept
+                                    </a>
+                                    <a
+                                        onClick={() =>
+                                            handleFriendRequest(
+                                                false,
+                                                r.user_id
+                                            )
+                                        }
+                                    >
+                                        Decline
+                                    </a>
                                 </div>
                             </>
-                        ))}
-                    </Notification>
+                        </Notification>
+                    ))}
                 </Scroll>
             </NotificationList>
         </Container>
