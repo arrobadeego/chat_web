@@ -29,7 +29,11 @@ export default function user(state = INITIAL_STATE, action) {
             }
 
             case '@socket/NOTIFY_INVITE': {
-                console.tron.log('skjfjsdiofjsdiofjsdoifjiosdjf');
+                draft.profile = action.payload.profile;
+                break;
+            }
+
+            case '@socket/ANSWER_INVITE_REQUEST': {
                 draft.profile = action.payload.profile;
                 break;
             }
