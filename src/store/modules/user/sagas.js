@@ -82,8 +82,31 @@ export function* sendInvite({ payload }) {
     }
 }
 
+export function* receiveInvite({ payload }) {
+    try {
+        const { isAccept, user_id } = payload;
+
+        api.defaults.headers.Authorization = `Bearer ${localStorage.getItem(
+            'Authorization'
+        )}`;
+
+        const response = yield call(api.post, 'contacts', {
+            isAccept,
+            user_id,
+        });
+
+        // toast.success('');
+
+        yield put(sendInviteSuccess());
+    } catch (error) {
+        // toast.error(`Was impossible to send invite to ${email}.`);
+        // yield put(sendInviteFailure());
+    }
+}
+
 export default all([
     takeLatest('@user/SIGN_UP_REQUEST', signUp),
     takeLatest('@user/UPDATE_PROFILE_REQUEST', updateProfile),
     takeLatest('@user/SEND_INVITE_REQUEST', sendInvite),
+    takeLatest('@user/ANSWER_INVITE_REQUEST', receiveInvite),
 ]);
