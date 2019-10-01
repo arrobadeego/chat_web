@@ -43,3 +43,22 @@ export function sendInviteFailure() {
         type: '@user/SEND_INVITE_FAILURE',
     };
 }
+
+export function answerInviteRequest(isAccept, user_id) {
+    return {
+        type: '@user/ANSWER_INVITE_REQUEST',
+        payload: { isAccept, user_id },
+    };
+}
+
+export function answerInviteSuccess() {
+    return {
+        type: '@user/ANSWER_INVITE_SUCCESS',
+    };
+}
+
+export function answerInviteFailure() {
+    return {
+        type: '@user/ANSWER_INVITE_FAILURE',
+    };
+}

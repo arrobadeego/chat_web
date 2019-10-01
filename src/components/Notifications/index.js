@@ -43,8 +43,7 @@ export default function Notifications() {
     }
 
     function handleFriendRequest(response, id) {
-        console.log(response);
-        console.log(id);
+        dispatch();
     }
 
     async function handleMarkAsRead(id) {
