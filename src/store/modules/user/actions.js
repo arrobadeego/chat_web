@@ -51,9 +51,10 @@ export function answerInviteRequest(isAccept, user_id) {
     };
 }
 
-export function answerInviteSuccess() {
+export function answerInviteSuccess(profile) {
     return {
         type: '@user/ANSWER_INVITE_SUCCESS',
+        payload: { profile },
     };
 }
 

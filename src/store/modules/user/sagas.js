@@ -12,6 +12,7 @@ import {
     updateProfileFailure,
     sendInviteSuccess,
     sendInviteFailure,
+    answerInviteSuccess,
 } from './actions';
 
 export function* signUp({ payload }) {
@@ -96,8 +97,8 @@ export function* receiveInvite({ payload }) {
         });
 
         // toast.success('');
-
-        yield put(sendInviteSuccess());
+        console.log(response.data);
+        yield put(answerInviteSuccess(response.data));
     } catch (error) {
         // toast.error(`Was impossible to send invite to ${email}.`);
         // yield put(sendInviteFailure());

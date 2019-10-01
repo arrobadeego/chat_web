@@ -1,5 +1,5 @@
-/* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { useState, useEffect, useMemo } from 'react';
+import { Link } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { MdNotifications } from 'react-icons/md';
 
@@ -66,32 +66,37 @@ export default function Notifications() {
 
             <NotificationList visible={visible}>
                 <Scroll>
-                    {received.map(r => (
-                        <Notification>
-                            <>
-                                <p>{`${r.name} added you (${r.email})`}</p>
-                                <div>
-                                    <a
-                                        onClick={() =>
-                                            handleFriendRequest(true, r.user_id)
-                                        }
-                                    >
-                                        Accept
-                                    </a>
-                                    <a
-                                        onClick={() =>
-                                            handleFriendRequest(
-                                                false,
-                                                r.user_id
-                                            )
-                                        }
-                                    >
-                                        Decline
-                                    </a>
-                                </div>
-                            </>
-                        </Notification>
-                    ))}
+                    {received
+                        ? received.map(r => (
+                              <Notification>
+                                  <>
+                                      <p>{`${r.name} added you (${r.email})`}</p>
+                                      <div>
+                                          <Link
+                                              onClick={() =>
+                                                  handleFriendRequest(
+                                                      true,
+                                                      r.user_id
+                                                  )
+                                              }
+                                          >
+                                              Accept
+                                          </Link>
+                                          <Link
+                                              onClick={() =>
+                                                  handleFriendRequest(
+                                                      false,
+                                                      r.user_id
+                                                  )
+                                              }
+                                          >
+                                              Decline
+                                          </Link>
+                                      </div>
+                                  </>
+                              </Notification>
+                          ))
+                        : null}
                 </Scroll>
             </NotificationList>
         </Container>

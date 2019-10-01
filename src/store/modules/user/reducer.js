@@ -33,7 +33,7 @@ export default function user(state = INITIAL_STATE, action) {
                 break;
             }
 
-            case '@socket/ANSWER_INVITE_REQUEST': {
+            case '@user/ANSWER_INVITE_SUCCESS': {
                 draft.profile = action.payload.profile;
                 break;
             }
