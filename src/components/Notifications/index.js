@@ -4,6 +4,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { MdNotifications } from 'react-icons/md';
 
 import api from '../../services/api';
+import { answerInviteRequest } from '../../store/modules/user/actions';
 
 import {
     Container,
@@ -43,7 +44,7 @@ export default function Notifications() {
     }
 
     function handleFriendRequest(response, id) {
-        dispatch();
+        dispatch(answerInviteRequest(response, id));
     }
 
     async function handleMarkAsRead(id) {
