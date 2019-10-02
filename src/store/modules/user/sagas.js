@@ -13,6 +13,7 @@ import {
     sendInviteSuccess,
     sendInviteFailure,
     answerInviteSuccess,
+    startChatSuccess,
 } from './actions';
 
 export function* signUp({ payload }) {
@@ -115,7 +116,7 @@ export function* startChat({ payload }) {
             user_id,
         });
 
-        yield put();
+        yield put(startChatSuccess(response.data));
     } catch (error) {
         // toast.error(`Was impossible to send invite to ${email}.`);
         // yield put(sendInviteFailure());
