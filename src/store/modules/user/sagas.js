@@ -96,9 +96,26 @@ export function* receiveInvite({ payload }) {
             user_id,
         });
 
-        // toast.success('');
-        console.log(response.data);
         yield put(answerInviteSuccess(response.data));
+    } catch (error) {
+        // toast.error(`Was impossible to send invite to ${email}.`);
+        // yield put(sendInviteFailure());
+    }
+}
+
+export function* startChat({ payload }) {
+    try {
+        const { user_id } = payload;
+
+        api.defaults.headers.Authorization = `Bearer ${localStorage.getItem(
+            'Authorization'
+        )}`;
+
+        const response = yield call(api.get, 'contacts', {
+            user_id,
+        });
+
+        yield put();
     } catch (error) {
         // toast.error(`Was impossible to send invite to ${email}.`);
         // yield put(sendInviteFailure());
@@ -110,4 +127,5 @@ export default all([
     takeLatest('@user/UPDATE_PROFILE_REQUEST', updateProfile),
     takeLatest('@user/SEND_INVITE_REQUEST', sendInvite),
     takeLatest('@user/ANSWER_INVITE_REQUEST', receiveInvite),
+    takeLatest('@user/START_CHAT_REQUEST', startChat),
 ]);
