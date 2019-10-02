@@ -66,37 +66,41 @@ export default function Notifications() {
 
             <NotificationList visible={visible}>
                 <Scroll>
-                    {received
-                        ? received.map(r => (
-                              <Notification>
-                                  <>
-                                      <p>{`${r.name} added you (${r.email})`}</p>
-                                      <div>
-                                          <Link
-                                              onClick={() =>
-                                                  handleFriendRequest(
-                                                      true,
-                                                      r.user_id
-                                                  )
-                                              }
-                                          >
-                                              Accept
-                                          </Link>
-                                          <Link
-                                              onClick={() =>
-                                                  handleFriendRequest(
-                                                      false,
-                                                      r.user_id
-                                                  )
-                                              }
-                                          >
-                                              Decline
-                                          </Link>
-                                      </div>
-                                  </>
-                              </Notification>
-                          ))
-                        : null}
+                    {received.length !== 0 ? (
+                        received.map(r => (
+                            <Notification>
+                                <>
+                                    <p>{`${r.name} added you (${r.email})`}</p>
+                                    <div>
+                                        <Link
+                                            onClick={() =>
+                                                handleFriendRequest(
+                                                    true,
+                                                    r.user_id
+                                                )
+                                            }
+                                        >
+                                            Accept
+                                        </Link>
+                                        <Link
+                                            onClick={() =>
+                                                handleFriendRequest(
+                                                    false,
+                                                    r.user_id
+                                                )
+                                            }
+                                        >
+                                            Decline
+                                        </Link>
+                                    </div>
+                                </>
+                            </Notification>
+                        ))
+                    ) : (
+                        <div>
+                            <span>There are not notifications to show</span>
+                        </div>
+                    )}
                 </Scroll>
             </NotificationList>
         </Container>

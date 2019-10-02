@@ -37,6 +37,7 @@ export const Content = styled.div`
     height: 50px;
     width: 100%;
     display: flex;
+    flex-direction: column;
     align-items: center;
     padding: 20px;
 
@@ -111,4 +112,11 @@ export const DropDownContent = styled.div`
         background-color: rgba(0, 0, 0, 0.14);
         cursor: pointer;
     }
+`;
+
+export const Contact = styled.div`
+    /* display: flex;
+    flex-direction: row; */
+
+    margin-bottom: 20px;
 `;
