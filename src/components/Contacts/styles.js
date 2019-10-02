@@ -116,7 +116,22 @@ export const DropDownContent = styled.div`
 
 export const Contact = styled.div`
     /* display: flex;
-    flex-direction: row; */
+    flex-direction: row !important; */
+
+    div {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+
+        div {
+            flex-direction: row;
+            justify-content: space-between;
+
+            span {
+                color: #000 !important;
+            }
+        }
+    }
 
     margin-bottom: 20px;
 `;

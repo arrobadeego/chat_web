@@ -15,7 +15,7 @@ export default function Contacts(props) {
     const { handleClickAction } = props;
     const { avatar } = useSelector(state => state.user.profile);
     const user = useSelector(state => state.user.profile);
-console.log(user);
+    console.log(user);
     const [isDropdownOpen, setIsDropdownOpen] = useState(false);
     const [container] = useState(React.createRef());
 
@@ -34,7 +34,7 @@ console.log(user);
         return () => {
             document.removeEventListener('mousedown', handleClickOutside);
         };
-    }, []);
+    }, [handleClickOutside]);
 
     return (
         <>
@@ -88,11 +88,11 @@ console.log(user);
                         />
 
                         <div>
+                            <span>{contact.name}</span>
                             <div>
-                                <span>{contact.name}</span>
                                 <span>Oi</span>
+                                <span>21:59</span>
                             </div>
-                            <span>21:59</span>
                         </div>
                     </Contact>
                 ))}
