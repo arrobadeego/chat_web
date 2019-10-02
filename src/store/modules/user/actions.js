@@ -63,3 +63,10 @@ export function answerInviteFailure() {
         type: '@user/ANSWER_INVITE_FAILURE',
     };
 }
+
+export function startChatRequest(id) {
+    return {
+        type: '@user/START_CHAT_REQUEST',
+        payload: { user_id: id },
+    };
+}
