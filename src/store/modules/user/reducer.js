@@ -1,6 +1,6 @@
 import produce from 'immer';
 
-const INITIAL_STATE = { profile: null };
+const INITIAL_STATE = { profile: null, contact: null };
 
 export default function user(state = INITIAL_STATE, action) {
     return produce(state, draft => {
@@ -35,6 +35,11 @@ export default function user(state = INITIAL_STATE, action) {
 
             case '@user/ANSWER_INVITE_SUCCESS': {
                 draft.profile = action.payload.profile;
+                break;
+            }
+
+            case '@user/START_CHAT_SUCCESS': {
+                draft.contact = action.payload.contact;
                 break;
             }
 
