@@ -70,3 +70,10 @@ export function startChatRequest(id) {
         payload: { user_id: id },
     };
 }
+
+export function startChatSuccess(contact) {
+    return {
+        type: '@user/START_CHAT_SUCCESS',
+        payload: { contact },
+    };
+}
