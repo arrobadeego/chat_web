@@ -1,4 +1,5 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
 import { MdSend } from 'react-icons/md';
 
 import {
@@ -12,16 +13,22 @@ import {
 } from './styles';
 
 export default function Chat() {
+    const contact = useSelector(state => state.user.contact);
+    console.log(contact);
+
     return (
         <Container>
             <Header>
                 <img
-                    src="https://api.adorable.io/avatars/50/abott@adorable.png"
+                    src={
+                        contact.avatar ||
+                        'https://api.adorable.io/avatars/50/abott@adorable.png'
+                    }
                     alt=""
                 />
 
                 <div>
-                    <span>Jobson</span>
+                    <span>{contact ? contact.name : null}</span>
                     <span>Online</span>
                 </div>
             </Header>

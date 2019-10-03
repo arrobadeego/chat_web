@@ -107,19 +107,19 @@ export function* receiveInvite({ payload }) {
 export function* startChat({ payload }) {
     try {
         const { user_id } = payload;
+        console.tron.log(user_id);
 
         api.defaults.headers.Authorization = `Bearer ${localStorage.getItem(
             'Authorization'
         )}`;
 
-        const response = yield call(api.get, 'contacts', {
-            user_id,
-        });
-
+        const response = yield call(api.get, `contacts/${user_id}`);
+        console.tron.log(response.data);
         yield put(startChatSuccess(response.data));
     } catch (error) {
         // toast.error(`Was impossible to send invite to ${email}.`);
         // yield put(sendInviteFailure());
+        console.tron.log(error);
     }
 }
 

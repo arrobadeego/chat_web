@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { MdMoreVert } from 'react-icons/md';
 
 import {
@@ -10,12 +10,14 @@ import {
     Contact,
 } from './styles';
 import Notifications from '../Notifications';
+import { startChatRequest } from '../../store/modules/user/actions';
 
 export default function Contacts(props) {
+    const dispatch = useDispatch();
+
     const { handleClickAction } = props;
     const { avatar } = useSelector(state => state.user.profile);
     const user = useSelector(state => state.user.profile);
-    console.log(user);
     const [isDropdownOpen, setIsDropdownOpen] = useState(false);
     const [container] = useState(React.createRef());
 
@@ -29,12 +31,16 @@ export default function Contacts(props) {
         }
     }
 
+    function handleStartChat(contact_id) {
+        dispatch(startChatRequest(contact_id));
+    }
+
     useEffect(() => {
         document.addEventListener('mousedown', handleClickOutside);
         return () => {
             document.removeEventListener('mousedown', handleClickOutside);
         };
-    }, [handleClickOutside]);
+    }, []);
 
     return (
         <>
@@ -81,12 +87,17 @@ export default function Contacts(props) {
             </Header>
             <Content>
                 {user.contacts.map(contact => (
-                    <Contact>
+                    <Contact
+                        key={contact.user_id}
+                        onClick={() => handleStartChat(contact.user_id)}
+                    >
                         <img
-                            src="https://api.adorable.io/avatars/50/abott@adorable.png"
+                            src={
+                                contact.avatar ||
+                                'https://api.adorable.io/avatars/50/abott@adorable.png'
+                            }
                             alt=""
                         />
-
                         <div>
                             <span>{contact.name}</span>
                             <div>
