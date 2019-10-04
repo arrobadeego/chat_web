@@ -43,6 +43,12 @@ export default function user(state = INITIAL_STATE, action) {
                 break;
             }
 
+            case '@auth/LOGOUT': {
+                draft.profile = null;
+                draft.contact = null;
+                break;
+            }
+
             default:
         }
     });
