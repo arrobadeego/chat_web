@@ -11,6 +11,7 @@ import {
 } from './styles';
 import Notifications from '../Notifications';
 import { startChatRequest } from '../../store/modules/user/actions';
+import { logout } from '../../store/modules/auth/actions';
 
 export default function Contacts(props) {
     const dispatch = useDispatch();
@@ -36,8 +37,7 @@ export default function Contacts(props) {
     }
 
     function handleLogout() {
-        // dispatch();
-        console.log('clicou');
+        dispatch(logout());
     }
 
     useEffect(() => {
