@@ -35,6 +35,11 @@ export default function Contacts(props) {
         dispatch(startChatRequest(contact_id));
     }
 
+    function handleLogout() {
+        // dispatch();
+        console.log('clicou');
+    }
+
     useEffect(() => {
         document.addEventListener('mousedown', handleClickOutside);
         return () => {
@@ -79,7 +84,7 @@ export default function Contacts(props) {
                                 >
                                     Add new contact
                                 </li>
-                                <li>Logout</li>
+                                <li onClick={() => handleLogout()}>Logout</li>
                             </ul>
                         </DropDownContent>
                     ) : null}
