@@ -20,6 +20,6 @@ export function signFailure() {
 
 export function logout() {
     return {
-        type: '@auth/logout',
+        type: '@auth/LOGOUT',
     };
 }

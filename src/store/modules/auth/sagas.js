@@ -31,4 +31,12 @@ export function* signIn({ payload }) {
     }
 }
 
-export default all([takeLatest('@auth/SIGN_IN_REQUEST', signIn)]);
+export function* logout() {
+    localStorage.removeItem('Authorization');
+    yield history.push('/');
+}
+
+export default all([
+    takeLatest('@auth/SIGN_IN_REQUEST', signIn),
+    takeLatest('@auth/LOGOUT', logout),
+]);
