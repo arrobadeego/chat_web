@@ -31,9 +31,8 @@ export function* signIn({ payload }) {
     }
 }
 
-export function* logout() {
-    localStorage.removeItem('Authorization');
-    yield history.push('/');
+export function logout() {
+    history.push('/');
 }
 
 export default all([

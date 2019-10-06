@@ -21,8 +21,9 @@ export default function Chat() {
             <Header>
                 <img
                     src={
-                        contact.avatar ||
-                        'https://api.adorable.io/avatars/50/abott@adorable.png'
+                        contact
+                            ? contact.avatar
+                            : 'https://api.adorable.io/avatars/50/abott@adorable.png'
                     }
                     alt=""
                 />

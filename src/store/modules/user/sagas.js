@@ -29,6 +29,8 @@ export function* signUp({ payload }) {
 
         const token = response.headers.authorization;
 
+        localStorage.setItem('Authorization', token);
+
         yield put(signSuccess(token, user));
 
         history.push('/dashboard');
